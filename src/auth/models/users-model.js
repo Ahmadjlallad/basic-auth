@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 require("dotenv").config();
-console.log(process.env.DATABASE_URL);
-const sequelize = new Sequelize(process.env.DATABASE_URL || "sqlite:memory:", {
+const DBURL = process.env.DATABASE_URL || "sqlite:memory:";
+const sequelize = new Sequelize(DBURL, {
   dialect: "postgres",
   dialectOptions: {
     ssl: {
